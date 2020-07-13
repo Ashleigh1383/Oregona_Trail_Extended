@@ -7,6 +7,9 @@ travelerInfo = document.createElement("div")
 travelersElement.append(travelerInfo)
 const eatBtn = document.createElement("button")
 eatBtn.append("Eat")
+const huntBtn = document.createElement("button")
+huntBtn.append("Hunt")
+
 
 class Traveler {
     constructor(name){
@@ -15,21 +18,23 @@ class Traveler {
         this.isHealthy = true
         travelerInfo.append("name:" + " " + this.name + ", " + "food:" + this.food + ", " + "Health:" + this.isHealthy + "  ")       
         travelerInfo.append(eatBtn)
+        travelerInfo.append(huntBtn)
+        
     }
     
     hunt(){
         this.food += 2
     }
+
     eat(){
         if(this.food > 0){
             this.food -= 1
-            return "Healthy!"
+            return 
         }else {
-            this.isHealthy = "Not Healthy!"
+            this.isHealthy = false
             
         }
        
-
     }
        
       
@@ -38,8 +43,10 @@ class Traveler {
 const wagonElement = document.createElement("h1")
 wagonElement.append("Wagon Capacity")
 mainElement.append(wagonElement)
+
 const wagonCount = document.createElement("div")
 wagonElement.append(wagonCount)
+
 quarantine = document.createElement("div")
 quarantine.append("Should be Quarantined: ")
 mainElement.append(quarantine)
@@ -61,10 +68,11 @@ class Wagon {
         if(this.getAvailableSeatCount() > 0){
             this.passengers.push(Traveler)
         }
+        
     }
 
     shouldQuarantine(){
-        return this.passengers.some(passenger => this.passengers.isHealthy === false)
+        return this.passengers.some(passenger => passenger.isHealthy === false)
         
     }
 
