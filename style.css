@@ -1,0 +1,26 @@
+:root{
+    background-color: black;
+}
+
+main {
+    width: 330px;
+    color: white;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    
+}
+h1{
+    margin-bottom: 10px;
+}
+
+#text{
+    padding-inline: 2px;
+}
+
+div{
+    font-size: 20px;
+    letter-spacing: 1px;
+    font-weight: normal;
+}
+img{
+    width: 300px ;
+}
