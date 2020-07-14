@@ -40,6 +40,48 @@ class Traveler {
       
 }
 
+
+
+class Doctor extends Traveler{
+    constructor(name){
+        super(name)
+        
+    }
+    heal(Traveler){
+        Traveler.isHealthy = true
+    }
+}
+
+class Hunter extends Traveler{
+    constructor(name){
+        super(name)
+        this.food = 2
+
+    }
+    hunt(){
+        this.food += 5
+    }
+
+    eat(){
+        if(this.food > 2){
+            this.food -= 2  
+
+        }else if(this.food < 2){
+            this.food = 0
+            this.isHealthy = false
+        }
+            
+    
+    }
+    giveFood(Traveler, numOfFoodUnits){
+        if(this.food >= numOfFoodUnits){
+            this.food -= numOfFoodUnits
+            Traveler.food += numOfFoodUnits 
+        }
+    }
+}
+
+
 const wagonElement = document.createElement("h1")
 wagonElement.append("Wagon Capacity")
 mainElement.append(wagonElement)
@@ -90,7 +132,6 @@ class Wagon {
 const addTravelerBtn = document.createElement("button")
 addTravelerBtn.append("Add Traveler")
 mainElement.append(addTravelerBtn)
-
 
 
 const image = document.createElement("img")
